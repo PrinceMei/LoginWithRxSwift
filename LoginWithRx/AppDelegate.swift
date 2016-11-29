@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  LoginWithRx
 //
-//  Created by HJTTF on 2016/11/29.
+//  Created by tiantengfei on 2016/11/29.
 //  Copyright © 2016年 tiantengfei. All rights reserved.
 //
 

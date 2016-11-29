@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  LoginWithRx
 //
-//  Created by HJTTF on 2016/11/29.
+//  Created by tiantengfei on 2016/11/29.
 //  Copyright © 2016年 tiantengfei. All rights reserved.
 //
 
@@ -25,40 +25,17 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
-    }
-
-    func bind() {
         
-        let usernameValid = usernameTextField.rx.text.orEmpty
-            .map{ $0.characters.count >= 5 }
-            .shareReplay(1)
-        let passwordValid = passwordTextField.rx.text.orEmpty
-            .map{ $0.characters.count >= 5 }
-            .shareReplay(1)
-        let registerButtonTap = registerButton.rx.tap
+        let viewModel = RegisterViewModel(input:
+            (username: usernameTextField.rx.text.orEmpty.asObservable(),
+             password: passwordTextField.rx.text.orEmpty.asObservable(),
+             repeatPassword: repeatPasswordTextField.rx.text.orEmpty.asObservable(),
+             registerTaps: registerButton.rx.tap.asObservable()),
+             service: ValidationService.instance)
         
-        let everythingValid = Observable.combineLatest(usernameValid, passwordValid) {
-            $0 && $1
-        }.shareReplay(1)
-        
-        
-        usernameValid
-            .bindTo( usernameLabel.rx.isHidden )
+        viewModel.usernameUsable
+            .bindTo(usernameLabel.rx.validationResult)
             .addDisposableTo(disposeBag)
-        usernameValid
-            .bindTo(passwordTextField.rx.isEnabled)
-            .addDisposableTo(disposeBag)
-        
-        passwordValid
-            .bindTo( passwordLabel.rx.isHidden )
-            .addDisposableTo(disposeBag)
-        everythingValid
-            .bindTo(registerButton.rx.isEnabled)
-            .addDisposableTo(disposeBag)
-        
-        
-        
         
     }
 

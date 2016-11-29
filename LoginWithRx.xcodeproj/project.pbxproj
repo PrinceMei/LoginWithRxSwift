@@ -16,6 +16,9 @@
 		94EC11A41DED2BC80027868A /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC11A11DED2BC80027868A /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		94EC11A51DED2BC80027868A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC11A21DED2BC80027868A /* RxSwift.framework */; };
 		94EC11A61DED2BC80027868A /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC11A21DED2BC80027868A /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		94EC11A91DED5F300027868A /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EC11A81DED5F300027868A /* RegisterViewModel.swift */; };
+		94EC11AB1DED602B0027868A /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EC11AA1DED602B0027868A /* Protocol.swift */; };
+		94EC11AD1DED64DF0027868A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EC11AC1DED64DF0027868A /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +46,9 @@
 		94EC119B1DED237B0027868A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94EC11A11DED2BC80027868A /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		94EC11A21DED2BC80027868A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		94EC11A81DED5F300027868A /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		94EC11AA1DED602B0027868A /* Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		94EC11AC1DED64DF0027868A /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +86,10 @@
 			isa = PBXGroup;
 			children = (
 				94EC118F1DED237B0027868A /* AppDelegate.swift */,
+				94EC11AA1DED602B0027868A /* Protocol.swift */,
 				94EC11911DED237B0027868A /* RegisterViewController.swift */,
+				94EC11A81DED5F300027868A /* RegisterViewModel.swift */,
+				94EC11AC1DED64DF0027868A /* Service.swift */,
 				94EC11931DED237B0027868A /* Main.storyboard */,
 				94EC11961DED237B0027868A /* Assets.xcassets */,
 				94EC11981DED237B0027868A /* LaunchScreen.storyboard */,
@@ -163,7 +172,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				94EC11921DED237B0027868A /* RegisterViewController.swift in Sources */,
+				94EC11A91DED5F300027868A /* RegisterViewModel.swift in Sources */,
+				94EC11AD1DED64DF0027868A /* Service.swift in Sources */,
 				94EC11901DED237B0027868A /* AppDelegate.swift in Sources */,
+				94EC11AB1DED602B0027868A /* Protocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +343,7 @@
 				94EC11A01DED237B0027868A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
