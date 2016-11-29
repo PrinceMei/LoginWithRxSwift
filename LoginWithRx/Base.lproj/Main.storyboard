@@ -70,6 +70,12 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="两次密码不一样" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxi-zb-mXy">
+                                <rect key="frame" x="140" y="356" width="94" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qq4-hB-jbq">
                                 <rect key="frame" x="16" y="133" width="76" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -83,17 +89,44 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7yG-zJ-g6T">
-                                <rect key="frame" x="112" y="332" width="150" height="40"/>
-                                <color key="backgroundColor" red="0.2422866434" green="0.2422866434" blue="0.2422866434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="112" y="402" width="150" height="40"/>
+                                <color key="backgroundColor" red="0.30523252020000002" green="0.67018145900000003" blue="0.90568073839999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="2sW-co-EBU"/>
                                     <constraint firstAttribute="height" constant="40" id="4FM-Tt-Ex9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="注册">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="disabled" title="注册">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.2422866434" green="0.2422866434" blue="0.2422866434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vr9-Qw-cqO">
+                                <rect key="frame" x="112" y="318" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="gD4-6q-Pdd"/>
+                                    <constraint firstAttribute="width" constant="150" id="q6a-mr-4eE"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYK-fk-Fk5">
+                                <rect key="frame" x="166" y="356" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="重复密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lre-FC-scp">
+                                <rect key="frame" x="16" y="321" width="70" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -101,7 +134,11 @@
                             <constraint firstItem="da2-5o-TPF" firstAttribute="top" secondItem="HRu-sx-Coy" secondAttribute="bottom" constant="8" id="2CR-ll-sf0"/>
                             <constraint firstAttribute="leadingMargin" secondItem="qq4-hB-jbq" secondAttribute="leading" id="7PH-gu-oR7"/>
                             <constraint firstItem="HRu-sx-Coy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IbZ-d1-Sgo"/>
+                            <constraint firstItem="qxi-zb-mXy" firstAttribute="top" secondItem="Vr9-Qw-cqO" secondAttribute="bottom" constant="8" id="Lpd-T4-BiH"/>
                             <constraint firstItem="4sA-ek-8zC" firstAttribute="top" secondItem="da2-5o-TPF" secondAttribute="bottom" constant="35" id="MME-Ru-ngC"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="lre-FC-scp" secondAttribute="leading" id="MRR-WQ-VA9"/>
+                            <constraint firstItem="Vr9-Qw-cqO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NGf-I4-hU7"/>
+                            <constraint firstItem="qxi-zb-mXy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pt2-Lg-guf"/>
                             <constraint firstItem="pci-d5-jyu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vb1-Ey-3nN"/>
                             <constraint firstItem="HRu-sx-Coy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="64" id="YV3-KR-hAy"/>
                             <constraint firstItem="4sA-ek-8zC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="avx-Ef-04g"/>
@@ -110,7 +147,9 @@
                             <constraint firstItem="qq4-hB-jbq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="69" id="bYA-JX-n7X"/>
                             <constraint firstItem="da2-5o-TPF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jDt-h7-0Tc"/>
                             <constraint firstItem="7yG-zJ-g6T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jLJ-uV-ng6"/>
-                            <constraint firstItem="7yG-zJ-g6T" firstAttribute="top" secondItem="pci-d5-jyu" secondAttribute="bottom" constant="50" id="zWp-QO-ATX"/>
+                            <constraint firstItem="lre-FC-scp" firstAttribute="top" secondItem="hjK-5S-4Td" secondAttribute="bottom" constant="74" id="jdK-vy-pa9"/>
+                            <constraint firstItem="Vr9-Qw-cqO" firstAttribute="top" secondItem="pci-d5-jyu" secondAttribute="bottom" constant="36" id="qRJ-qj-xNl"/>
+                            <constraint firstItem="7yG-zJ-g6T" firstAttribute="top" secondItem="qxi-zb-mXy" secondAttribute="bottom" constant="25" id="uvs-7j-Xjn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="注册" id="zw4-Lo-rVd"/>
@@ -118,6 +157,8 @@
                         <outlet property="passwordLabel" destination="pci-d5-jyu" id="KZg-Kr-g2D"/>
                         <outlet property="passwordTextField" destination="4sA-ek-8zC" id="FIa-AX-W6V"/>
                         <outlet property="registerButton" destination="7yG-zJ-g6T" id="f5U-lv-Y9o"/>
+                        <outlet property="repeatPasswordLabel" destination="qxi-zb-mXy" id="cgk-SV-0Jb"/>
+                        <outlet property="repeatPasswordTextField" destination="Vr9-Qw-cqO" id="nyd-ta-I3C"/>
                         <outlet property="usernameLabel" destination="da2-5o-TPF" id="7On-jp-7l6"/>
                         <outlet property="usernameTextField" destination="HRu-sx-Coy" id="dB6-4h-Hdd"/>
                     </connections>

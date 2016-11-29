@@ -16,6 +16,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var repeatPasswordTextField: UITextField!
+    @IBOutlet weak var repeatPasswordLabel: UILabel!
     
     @IBOutlet weak var registerButton: UIButton!
     
@@ -34,10 +36,28 @@ class RegisterViewController: UIViewController {
         let passwordValid = passwordTextField.rx.text.orEmpty
             .map{ $0.characters.count >= 5 }
             .shareReplay(1)
+        let registerButtonTap = registerButton.rx.tap
+        
+        let everythingValid = Observable.combineLatest(usernameValid, passwordValid) {
+            $0 && $1
+        }.shareReplay(1)
+        
         
         usernameValid
             .bindTo( usernameLabel.rx.isHidden )
             .addDisposableTo(disposeBag)
+        usernameValid
+            .bindTo(passwordTextField.rx.isEnabled)
+            .addDisposableTo(disposeBag)
+        
+        passwordValid
+            .bindTo( passwordLabel.rx.isHidden )
+            .addDisposableTo(disposeBag)
+        everythingValid
+            .bindTo(registerButton.rx.isEnabled)
+            .addDisposableTo(disposeBag)
+        
+        
         
         
     }
