@@ -43,5 +43,6 @@ class RegisterViewModel: NSObject {
             }
             .distinctUntilChanged()
             .shareReplay(1)
+        
     }
 }

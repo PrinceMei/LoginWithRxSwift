@@ -37,6 +37,21 @@ class RegisterViewController: UIViewController {
             .bindTo(usernameLabel.rx.validationResult)
             .addDisposableTo(disposeBag)
         
+        
+        viewModel.passwordUsable
+            .bindTo(passwordLabel.rx.validationResult)
+            .addDisposableTo(disposeBag)
+        
+        viewModel.repeatPasswordUsable
+            .bindTo(repeatPasswordLabel.rx.validationResult)
+            .addDisposableTo(disposeBag)
+        
+        viewModel.registerButtonEnabled
+            .subscribe(onNext: { [weak self] valid in
+                self?.registerButton.isEnabled = valid
+                self?.registerButton.alpha = valid ? 1.0 : 0.5
+            })
+            .addDisposableTo(disposeBag)
     }
 
 }
