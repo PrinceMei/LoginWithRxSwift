@@ -8,20 +8,41 @@
 
 /* Begin PBXBuildFile section */
 		94EC11901DED237B0027868A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EC118F1DED237B0027868A /* AppDelegate.swift */; };
-		94EC11921DED237B0027868A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EC11911DED237B0027868A /* ViewController.swift */; };
+		94EC11921DED237B0027868A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EC11911DED237B0027868A /* RegisterViewController.swift */; };
 		94EC11951DED237B0027868A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94EC11931DED237B0027868A /* Main.storyboard */; };
 		94EC11971DED237B0027868A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94EC11961DED237B0027868A /* Assets.xcassets */; };
 		94EC119A1DED237B0027868A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94EC11981DED237B0027868A /* LaunchScreen.storyboard */; };
+		94EC11A31DED2BC80027868A /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC11A11DED2BC80027868A /* RxCocoa.framework */; };
+		94EC11A41DED2BC80027868A /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC11A11DED2BC80027868A /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		94EC11A51DED2BC80027868A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC11A21DED2BC80027868A /* RxSwift.framework */; };
+		94EC11A61DED2BC80027868A /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC11A21DED2BC80027868A /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		94EC11A71DED2BC80027868A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				94EC11A61DED2BC80027868A /* RxSwift.framework in Embed Frameworks */,
+				94EC11A41DED2BC80027868A /* RxCocoa.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		94EC118C1DED237B0027868A /* LoginWithRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginWithRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94EC118F1DED237B0027868A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		94EC11911DED237B0027868A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		94EC11911DED237B0027868A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		94EC11941DED237B0027868A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		94EC11961DED237B0027868A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94EC11991DED237B0027868A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94EC119B1DED237B0027868A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94EC11A11DED2BC80027868A /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		94EC11A21DED2BC80027868A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94EC11A51DED2BC80027868A /* RxSwift.framework in Frameworks */,
+				94EC11A31DED2BC80027868A /* RxCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +61,8 @@
 		94EC11831DED237B0027868A = {
 			isa = PBXGroup;
 			children = (
+				94EC11A11DED2BC80027868A /* RxCocoa.framework */,
+				94EC11A21DED2BC80027868A /* RxSwift.framework */,
 				94EC118E1DED237B0027868A /* LoginWithRx */,
 				94EC118D1DED237B0027868A /* Products */,
 			);
@@ -55,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				94EC118F1DED237B0027868A /* AppDelegate.swift */,
-				94EC11911DED237B0027868A /* ViewController.swift */,
+				94EC11911DED237B0027868A /* RegisterViewController.swift */,
 				94EC11931DED237B0027868A /* Main.storyboard */,
 				94EC11961DED237B0027868A /* Assets.xcassets */,
 				94EC11981DED237B0027868A /* LaunchScreen.storyboard */,
@@ -74,6 +99,7 @@
 				94EC11881DED237B0027868A /* Sources */,
 				94EC11891DED237B0027868A /* Frameworks */,
 				94EC118A1DED237B0027868A /* Resources */,
+				94EC11A71DED2BC80027868A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,7 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94EC11921DED237B0027868A /* ViewController.swift in Sources */,
+				94EC11921DED237B0027868A /* RegisterViewController.swift in Sources */,
 				94EC11901DED237B0027868A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +284,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LoginWithRx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hujiang.ttf.LoginWithRx;
@@ -270,6 +300,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LoginWithRx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hujiang.ttf.LoginWithRx;
