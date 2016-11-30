@@ -30,6 +30,10 @@ class ValidationService: NSObject {
             return .just(.failed(message: "号码长度至少6个字符"))
         }
         
+        if usernameValid(username) {
+            return .just(.failed(message: "账户已存在"))
+        }
+        
         return .just(.ok(message: "用户名可用"))
     }
     
@@ -59,12 +63,23 @@ class ValidationService: NSObject {
     
     func register(_ username: String, password: String) -> Observable<Result> {
         let userDic: NSDictionary = [username: password]
-//        let filePath = Bundle.main.path(forResource: "users", ofType: "plist")
+        
         let filePath = NSHomeDirectory() + "/Documents/users.plist"
         
         if userDic.write(toFile: filePath, atomically: true) {
             return .just(.ok(message: "注册成功"))
         }
         return .just(.failed(message: "注册失败"))
+    }
+    
+    func usernameValid(_ username: String) -> Bool {
+        let filePath = NSHomeDirectory() + "/Documents/users.plist"
+        let userDic = NSDictionary(contentsOfFile: filePath)
+        let usernameArray = userDic!.allKeys as NSArray
+        if usernameArray.contains(username) {
+            return true
+        } else {
+            return false
+        }
     }
 }
