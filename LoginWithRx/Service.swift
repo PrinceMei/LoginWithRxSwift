@@ -82,4 +82,25 @@ class ValidationService: NSObject {
             return false
         }
     }
+    
+    func loginUsernameValid(_ username: String) -> Observable<Result> {
+        if username.characters.count == 0 {
+            return .just(.empty)
+        }
+        
+        if usernameValid(username) {
+            return .just(.ok(message: "用户名可用"))
+        }
+        return .just(.failed(message: "用户名不存在"))
+    }
+    
+    func login(_ username: String, password: String) -> Observable<Result> {
+        let filePath = NSHomeDirectory() + "/Documents/users.plist"
+        let userDic = NSDictionary(contentsOfFile: filePath)
+        let userPass = userDic?.object(forKey: username) as! String
+        if  userPass == password {
+            return .just(.ok(message: "登录成功"))
+        }
+        return .just(.failed(message: "密码错误"))
+    }
 }
