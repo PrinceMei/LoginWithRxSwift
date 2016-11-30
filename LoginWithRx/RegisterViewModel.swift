@@ -16,6 +16,8 @@ class RegisterViewModel: NSObject {
     let repeatPasswordUsable: Observable<Result>
     let registerButtonEnabled: Observable<Bool>
     
+    let registerResult: Observable<Result>
+    
     init(input: (username: Observable<String>, password: Observable<String>, repeatPassword: Observable<String>, registerTaps: Observable<Void>),
          service: ValidationService) {
         usernameUsable = input.username
@@ -44,5 +46,18 @@ class RegisterViewModel: NSObject {
             .distinctUntilChanged()
             .shareReplay(1)
         
+        let usernameAndPassword = Observable.combineLatest(input.username, input.password) {
+            ($0, $1)
+        }
+        
+        registerResult = input.registerTaps.withLatestFrom(usernameAndPassword)
+            .flatMapLatest { (username, password) in
+                return service.register(username, password: password)
+                    .observeOn(MainScheduler.instance)
+                    .catchErrorJustReturn(.failed(message: "注册出错"))
+            }
+            .shareReplay(1)
     }
+        
 }
+

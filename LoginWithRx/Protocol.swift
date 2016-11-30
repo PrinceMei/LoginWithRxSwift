@@ -62,3 +62,11 @@ extension Reactive where Base: UILabel {
         }
     }
 }
+
+extension Reactive where Base: UITextField {
+    var inputEnabled: UIBindingObserver<Base, Result> {
+        return UIBindingObserver(UIElement: base) { textFiled, result in
+            textFiled.isEnabled = result.isValid
+        }
+    }
+}

@@ -36,10 +36,15 @@ class RegisterViewController: UIViewController {
         viewModel.usernameUsable
             .bindTo(usernameLabel.rx.validationResult)
             .addDisposableTo(disposeBag)
-        
+        viewModel.usernameUsable
+            .bindTo(passwordTextField.rx.inputEnabled)
+            .addDisposableTo(disposeBag)
         
         viewModel.passwordUsable
             .bindTo(passwordLabel.rx.validationResult)
+            .addDisposableTo(disposeBag)
+        viewModel.passwordUsable
+            .bindTo(repeatPasswordTextField.rx.inputEnabled)
             .addDisposableTo(disposeBag)
         
         viewModel.repeatPasswordUsable
@@ -52,6 +57,26 @@ class RegisterViewController: UIViewController {
                 self?.registerButton.alpha = valid ? 1.0 : 0.5
             })
             .addDisposableTo(disposeBag)
+        
+        viewModel.registerResult
+            .subscribe(onNext: { [weak self] result in
+                switch result {
+                case let .ok(message):
+                    self?.showAlert(message: message)
+                case .empty:
+                    self?.showAlert(message: "")
+                case let .failed(message):
+                    self?.showAlert(message: message)
+                }
+            })
+            .addDisposableTo(disposeBag)
+    }
+    
+    func showAlert(message: String) {
+        let action = UIAlertAction(title: "确定", style: .default, handler: nil)
+        let alertViewController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alertViewController.addAction(action)
+        present(alertViewController, animated: true, completion: nil)
     }
 
 }

@@ -59,11 +59,12 @@ class ValidationService: NSObject {
     
     func register(_ username: String, password: String) -> Observable<Result> {
         let userDic: NSDictionary = [username: password]
-        let filePath = Bundle.main.path(forResource: "users", ofType: "plist")
+//        let filePath = Bundle.main.path(forResource: "users", ofType: "plist")
+        let filePath = NSHomeDirectory() + "/Documents/users.plist"
         
-        if userDic.write(toFile: filePath!, atomically: true) {
-            return .just(.failed(message: "注册写入失败"))
+        if userDic.write(toFile: filePath, atomically: true) {
+            return .just(.failed(message: "注册成功"))
         }
-        return .just(.ok(message: "注册成功"))
+        return .just(.ok(message: "注册失败"))
     }
 }
