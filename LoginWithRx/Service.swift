@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import RxSwift
 import RxCocoa
 
@@ -20,6 +21,7 @@ class ValidationService: NSObject {
     let minCharactersCount = 6
     
     func validateUsername(_ username: String) -> Observable<Result> {
+        
         if username.characters.count == 0 {
             return .just(.empty)
         }
@@ -53,5 +55,15 @@ class ValidationService: NSObject {
         }
         
         return .failed(message: "两次密码不一样")
+    }
+    
+    func register(_ username: String, password: String) -> Observable<Result> {
+        let userDic: NSDictionary = [username: password]
+        let filePath = Bundle.main.path(forResource: "users", ofType: "plist")
+        
+        if userDic.write(toFile: filePath!, atomically: true) {
+            return .just(.failed(message: "注册写入失败"))
+        }
+        return .just(.ok(message: "注册成功"))
     }
 }

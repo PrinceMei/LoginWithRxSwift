@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		946FDFAE1DEED5F3003A3B56 /* users.plist in Resources */ = {isa = PBXBuildFile; fileRef = 946FDFAD1DEED5F3003A3B56 /* users.plist */; };
 		94EC11901DED237B0027868A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EC118F1DED237B0027868A /* AppDelegate.swift */; };
 		94EC11921DED237B0027868A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EC11911DED237B0027868A /* RegisterViewController.swift */; };
 		94EC11951DED237B0027868A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94EC11931DED237B0027868A /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		946FDFAD1DEED5F3003A3B56 /* users.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = users.plist; sourceTree = "<group>"; };
 		94EC118C1DED237B0027868A /* LoginWithRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginWithRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94EC118F1DED237B0027868A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94EC11911DED237B0027868A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		94EC118E1DED237B0027868A /* LoginWithRx */ = {
 			isa = PBXGroup;
 			children = (
+				946FDFAD1DEED5F3003A3B56 /* users.plist */,
 				94EC118F1DED237B0027868A /* AppDelegate.swift */,
 				94EC11AA1DED602B0027868A /* Protocol.swift */,
 				94EC11911DED237B0027868A /* RegisterViewController.swift */,
@@ -161,6 +164,7 @@
 				94EC119A1DED237B0027868A /* LaunchScreen.storyboard in Resources */,
 				94EC11971DED237B0027868A /* Assets.xcassets in Resources */,
 				94EC11951DED237B0027868A /* Main.storyboard in Resources */,
+				946FDFAE1DEED5F3003A3B56 /* users.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
