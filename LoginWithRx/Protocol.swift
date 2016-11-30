@@ -70,3 +70,11 @@ extension Reactive where Base: UITextField {
         }
     }
 }
+
+extension Reactive where Base: UIBarButtonItem {
+    var tapEnabled: UIBindingObserver<Base, Result> {
+        return UIBindingObserver(UIElement: base) { button, result in
+            button.isEnabled = result.isValid
+        }
+    }
+}

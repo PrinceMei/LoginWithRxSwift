@@ -20,6 +20,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var repeatPasswordLabel: UILabel!
     
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var loginButton: UIBarButtonItem!
     
     let disposeBag = DisposeBag()
     
@@ -69,6 +70,10 @@ class RegisterViewController: UIViewController {
                     self?.showAlert(message: message)
                 }
             })
+            .addDisposableTo(disposeBag)
+        
+        viewModel.registerResult
+            .bindTo(loginButton.rx.tapEnabled)
             .addDisposableTo(disposeBag)
     }
     

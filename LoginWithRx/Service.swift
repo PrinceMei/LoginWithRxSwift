@@ -63,8 +63,8 @@ class ValidationService: NSObject {
         let filePath = NSHomeDirectory() + "/Documents/users.plist"
         
         if userDic.write(toFile: filePath, atomically: true) {
-            return .just(.failed(message: "注册成功"))
+            return .just(.ok(message: "注册成功"))
         }
-        return .just(.ok(message: "注册失败"))
+        return .just(.failed(message: "注册失败"))
     }
 }

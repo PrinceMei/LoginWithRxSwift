@@ -152,8 +152,15 @@
                             <constraint firstItem="7yG-zJ-g6T" firstAttribute="top" secondItem="qxi-zb-mXy" secondAttribute="bottom" constant="25" id="uvs-7j-Xjn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="注册" id="zw4-Lo-rVd"/>
+                    <navigationItem key="navigationItem" title="注册" id="zw4-Lo-rVd">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="登录" id="UX4-5j-YKL">
+                            <connections>
+                                <segue destination="L6V-o6-eKc" kind="show" id="VFy-TD-7VM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="loginButton" destination="UX4-5j-YKL" id="U5I-RD-Oag"/>
                         <outlet property="passwordLabel" destination="pci-d5-jyu" id="2xu-Dr-zTQ"/>
                         <outlet property="passwordTextField" destination="4sA-ek-8zC" id="FIa-AX-W6V"/>
                         <outlet property="registerButton" destination="7yG-zJ-g6T" id="f5U-lv-Y9o"/>
@@ -166,6 +173,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-127.2" y="115.59220389805098"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="aOG-08-Y9e">
+            <objects>
+                <viewController id="L6V-o6-eKc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OUg-vk-ePb"/>
+                        <viewControllerLayoutGuide type="bottom" id="FJe-QU-cOJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="P8O-kO-PKX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="17U-Kh-DRn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="591" y="116"/>
         </scene>
     </scenes>
 </document>
