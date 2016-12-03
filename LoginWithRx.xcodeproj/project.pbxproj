@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B005CC81DF2E0FD00BAD307 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B005CC71DF2E0FD00BAD307 /* Hero.swift */; };
 		7B0151D11DF2CFA00078072B /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0151D01DF2CFA00078072B /* ContainerViewController.swift */; };
 		7B0151D31DF2DA8D0078072B /* heros.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B0151D21DF2DA8D0078072B /* heros.plist */; };
+		7B0151D51DF2DAEB0078072B /* ContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0151D41DF2DAEB0078072B /* ContainerViewModel.swift */; };
 		7B5D4E521DEF13ED00093895 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5D4E511DEF13ED00093895 /* LoginViewController.swift */; };
 		7B5D4E541DEF13FC00093895 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5D4E531DEF13FC00093895 /* LoginViewModel.swift */; };
 		94EC11901DED237B0027868A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EC118F1DED237B0027868A /* AppDelegate.swift */; };
@@ -41,8 +43,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7B005CC71DF2E0FD00BAD307 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		7B0151D01DF2CFA00078072B /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		7B0151D21DF2DA8D0078072B /* heros.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = heros.plist; sourceTree = "<group>"; };
+		7B0151D41DF2DAEB0078072B /* ContainerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewModel.swift; sourceTree = "<group>"; };
 		7B5D4E511DEF13ED00093895 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7B5D4E531DEF13FC00093895 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		94EC118C1DED237B0027868A /* LoginWithRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginWithRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,7 +105,9 @@
 				7B5D4E511DEF13ED00093895 /* LoginViewController.swift */,
 				7B5D4E531DEF13FC00093895 /* LoginViewModel.swift */,
 				7B0151D01DF2CFA00078072B /* ContainerViewController.swift */,
+				7B0151D41DF2DAEB0078072B /* ContainerViewModel.swift */,
 				94EC11AC1DED64DF0027868A /* Service.swift */,
+				7B005CC71DF2E0FD00BAD307 /* Hero.swift */,
 				94EC11931DED237B0027868A /* Main.storyboard */,
 				94EC11961DED237B0027868A /* Assets.xcassets */,
 				94EC11981DED237B0027868A /* LaunchScreen.storyboard */,
@@ -189,6 +195,8 @@
 				7B0151D11DF2CFA00078072B /* ContainerViewController.swift in Sources */,
 				94EC11A91DED5F300027868A /* RegisterViewModel.swift in Sources */,
 				94EC11AD1DED64DF0027868A /* Service.swift in Sources */,
+				7B005CC81DF2E0FD00BAD307 /* Hero.swift in Sources */,
+				7B0151D51DF2DAEB0078072B /* ContainerViewModel.swift in Sources */,
 				94EC11901DED237B0027868A /* AppDelegate.swift in Sources */,
 				94EC11AB1DED602B0027868A /* Protocol.swift in Sources */,
 				7B5D4E541DEF13FC00093895 /* LoginViewModel.swift in Sources */,

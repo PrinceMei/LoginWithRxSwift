@@ -104,3 +104,24 @@ class ValidationService: NSObject {
         return .just(.failed(message: "密码错误"))
     }
 }
+
+
+class SearchService: NSObject {
+    static let shareInstance = SearchService()
+    
+    class func instance() -> SearchService {
+        return shareInstance
+    }
+    
+    func getHeros() -> Observable<[Hero]> {
+        let herosString = Bundle.main.path(forResource: "heros", ofType: "plist")
+        let herosArray = NSArray(contentsOfFile: herosString!) as! Array<[String: String]>
+        var heros = [Hero]()
+        for heroDic in herosArray {
+            let hero = Hero(name: heroDic["name"]!, desc: heroDic["intro"]!, icon: heroDic["icon"]!)
+            heros.append(hero)
+        }
+        
+        return Observable.just(heros)
+    }
+}
