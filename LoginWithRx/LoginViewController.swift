@@ -18,12 +18,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
+    var viewModel: LoginViewModel!
+    
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let viewModel = LoginViewModel(input: (username: usernameTextField.rx.text.orEmpty.asDriver(),
+        viewModel = LoginViewModel(input: (username: usernameTextField.rx.text.orEmpty.asDriver(),
                                                password: passwordTextField.rx.text.orEmpty.asDriver(),
                                                loginTaps: loginButton.rx.tap.asDriver()),
                                        service: ValidationService.instance)
@@ -39,10 +41,11 @@ class LoginViewController: UIViewController {
             })
             .addDisposableTo(disposeBag)
         
-        viewModel.registerResult
+        viewModel.loginResult
             .drive(onNext: { [unowned self] result in
                 switch result {
                 case let .ok(message):
+                    self.performSegue(withIdentifier: "container", sender: self)
                     self.showAlert(message: message)
                 case .empty:
                     self.showAlert(message: "")
@@ -59,6 +62,10 @@ class LoginViewController: UIViewController {
         let alertViewController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alertViewController.addAction(action)
         present(alertViewController, animated: true, completion: nil)
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return false
     }
 
 }

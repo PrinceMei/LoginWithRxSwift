@@ -14,7 +14,7 @@ class LoginViewModel: NSObject {
     
     let usernameUsable: Driver<Result>
     let loginButtonEnabled: Driver<Bool>
-    let registerResult: Driver<Result>
+    let loginResult: Driver<Result>
     
     
     init(input: (username: Driver<String>, password: Driver<String>, loginTaps: Driver<Void>),
@@ -29,7 +29,7 @@ class LoginViewModel: NSObject {
             ($0, $1)
         }
         
-        registerResult = input.loginTaps.withLatestFrom(usernameAndPassword)
+        loginResult = input.loginTaps.withLatestFrom(usernameAndPassword)
             .flatMapLatest { (username, password) in
                 return service.login(username, password: password)
                     .asDriver(onErrorJustReturn: .failed(message: "连接server失败"))
