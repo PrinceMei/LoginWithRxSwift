@@ -127,6 +127,10 @@ class SearchService: NSObject {
     }
     
     func getHeros(withName name: String) -> Observable<[Hero]> {
+        if name == "" {
+            return getHeros()
+        }
+        
         let herosString = Bundle.main.path(forResource: "heros", ofType: "plist")
         let herosArray = NSArray(contentsOfFile: herosString!) as! Array<[String: String]>
         var heros = [Hero]()

@@ -19,9 +19,8 @@ class ContainerViewController: UIViewController {
     
     var searchBarText: Observable<String> {
         return searchBar.rx.text.orEmpty
-            .filter { $0.characters.count > 1 }
-            .distinctUntilChanged()
             .throttle(0.3, scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
     }
     
     override func viewDidLoad() {

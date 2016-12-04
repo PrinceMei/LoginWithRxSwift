@@ -12,13 +12,13 @@ import RxSwift
 
 class ContainerViewModel {
     var service: SearchService!
-    lazy var models: Driver<[Hero]> = self.service.getHeros().asDriver(onErrorJustReturn: [])
+    var models: Driver<[Hero]>
     
     init(withSearchText searchText: Observable<String>, service: SearchService) {
         models = searchText
             .debug()
             .flatMap { text in
-                service.getHeros(withName: text)
+                return service.getHeros(withName: text)
             }.asDriver(onErrorJustReturn: [])
         
     }
