@@ -11,11 +11,15 @@ import RxCocoa
 import RxSwift
 
 class ContainerViewModel {
-    var models: Driver<[Hero]>
+    var service: SearchService!
+    lazy var models: Driver<[Hero]> = self.service.getHeros().asDriver(onErrorJustReturn: [])
     
-    let service = SearchService()
-    
-    init() {
-        models = service.getHeros().asDriver(onErrorJustReturn: [])
+    init(withSearchText searchText: Observable<String>, service: SearchService) {
+        models = searchText
+            .debug()
+            .flatMap { text in
+                service.getHeros(withName: text)
+            }.asDriver(onErrorJustReturn: [])
+        
     }
 }

@@ -17,9 +17,16 @@ class ContainerViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     
+    var searchBarText: Observable<String> {
+        return searchBar.rx.text.orEmpty
+            .filter { $0.characters.count > 1 }
+            .distinctUntilChanged()
+            .throttle(0.3, scheduler: MainScheduler.instance)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let viewModel = ContainerViewModel()
+        let viewModel = ContainerViewModel(withSearchText: searchBarText, service: SearchService())
 
         viewModel.models
             .drive(tableView.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) { (row, element, cell) in
@@ -28,5 +35,7 @@ class ContainerViewController: UIViewController {
                 cell.imageView?.image = UIImage(named: element.icon)
         }
         .addDisposableTo(disposeBag)
+        
+        
     }
 }
