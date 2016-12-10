@@ -1,5 +1,6 @@
 # LoginWithRxSwift
-A Sing in and Login Demo With RxSwift
+
+[Demo讲解点击我](http://www.codertian.com/2016/12/10/RxSwift-shi-zhan-jie-du-base-demo/)
 
 The preview:
 
