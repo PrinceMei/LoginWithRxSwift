@@ -11,7 +11,6 @@ import RxCocoa
 import RxSwift
 
 class ContainerViewModel {
-    var service: SearchService!
     var models: Driver<[Hero]>
     
     init(withSearchText searchText: Observable<String>, service: SearchService) {
