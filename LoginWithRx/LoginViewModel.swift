@@ -12,7 +12,7 @@ import RxSwift
 
 class LoginViewModel {
     
-    // output:
+    //output:
     let usernameUsable: Driver<Result>
     let loginButtonEnabled: Driver<Bool>
     let loginResult: Driver<Result>
