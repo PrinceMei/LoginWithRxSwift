@@ -12,12 +12,10 @@ import RxSwift
 import RxCocoa
 
 
-class ValidationService: NSObject {
+class ValidationService {
     static let instance = ValidationService()
     
-    class func shareInstance() -> ValidationService {
-        return instance
-    }
+    private init() {}
     
     let minCharactersCount = 6
     
@@ -107,12 +105,10 @@ class ValidationService: NSObject {
 }
 
 
-class SearchService: NSObject {
+class SearchService {
     static let shareInstance = SearchService()
     
-    class func instance() -> SearchService {
-        return shareInstance
-    }
+    private init() {}
     
     func getHeros() -> Observable<[Hero]> {
         let herosString = Bundle.main.path(forResource: "heros", ofType: "plist")

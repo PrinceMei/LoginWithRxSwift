@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class LoginViewModel: NSObject {
+class LoginViewModel {
     
     let usernameUsable: Driver<Result>
     let loginButtonEnabled: Driver<Bool>

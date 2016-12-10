@@ -25,7 +25,7 @@ class ContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let viewModel = ContainerViewModel(withSearchText: searchBarText, service: SearchService())
+        let viewModel = ContainerViewModel(withSearchText: searchBarText, service: SearchService.shareInstance)
 
         viewModel.models
             .drive(tableView.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) { (row, element, cell) in

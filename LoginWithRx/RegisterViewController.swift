@@ -27,7 +27,7 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let viewModel = RegisterViewModel(service: ValidationService.instance)
+        let viewModel = RegisterViewModel()
         
         usernameTextField.rx.text.orEmpty
             .bindTo(viewModel.username)

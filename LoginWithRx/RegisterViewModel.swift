@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class RegisterViewModel: NSObject {
+class RegisterViewModel {
     //input:
     let username = Variable<String>("")
     let password = Variable<String>("")
@@ -25,7 +25,9 @@ class RegisterViewModel: NSObject {
     
     let registerResult: Observable<Result>
     
-    init(service: ValidationService) {
+    init() {
+        let service = ValidationService.instance
+        
         usernameUsable = username.asObservable()
             .flatMapLatest{ username in
                 return service.validateUsername(username)
