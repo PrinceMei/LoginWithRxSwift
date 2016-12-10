@@ -1,5 +1,8 @@
 # LoginWithRxSwift
 A Sing in and Login Demo With RxSwift
 
-![](LoginWithRxSwift/images/demo.gif)
+![](https://github.com/CoderTian/LoginWithRxSwift/blob/master/images/demo.gif?raw=true)
+
+
+
 
