@@ -32,15 +32,19 @@ class RegisterViewController: UIViewController {
         usernameTextField.rx.text.orEmpty
             .bindTo(viewModel.username)
             .addDisposableTo(disposeBag)
+        
         passwordTextField.rx.text.orEmpty
             .bindTo(viewModel.password)
             .addDisposableTo(disposeBag)
+        
         repeatPasswordTextField.rx.text.orEmpty
             .bindTo(viewModel.repeatPassword)
             .addDisposableTo(disposeBag)
+        
         registerButton.rx.tap
             .bindTo(viewModel.registerTaps)
             .addDisposableTo(disposeBag)
+        
         
         viewModel.usernameUsable
             .bindTo(usernameLabel.rx.validationResult)

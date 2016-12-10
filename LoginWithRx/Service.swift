@@ -12,6 +12,7 @@ import RxSwift
 import RxCocoa
 
 
+/// handle our TextFiled text in RegisterViewController
 class ValidationService {
     static let instance = ValidationService()
     
@@ -61,11 +62,11 @@ class ValidationService {
     }
     
     func register(_ username: String, password: String) -> Observable<Result> {
-        let userDic: NSDictionary = [username: password]
+        let userDic = [username: password]
         
         let filePath = NSHomeDirectory() + "/Documents/users.plist"
         
-        if userDic.write(toFile: filePath, atomically: true) {
+        if (userDic as NSDictionary).write(toFile: filePath, atomically: true) {
             return .just(.ok(message: "注册成功"))
         }
         return .just(.failed(message: "注册失败"))
@@ -96,9 +97,10 @@ class ValidationService {
     func login(_ username: String, password: String) -> Observable<Result> {
         let filePath = NSHomeDirectory() + "/Documents/users.plist"
         let userDic = NSDictionary(contentsOfFile: filePath)
-        let userPass = userDic?.object(forKey: username) as! String
-        if  userPass == password {
-            return .just(.ok(message: "登录成功"))
+        if let userPass = userDic?.object(forKey: username) as? String {
+            if  userPass == password {
+                return .just(.ok(message: "登录成功"))
+            }
         }
         return .just(.failed(message: "密码错误"))
     }

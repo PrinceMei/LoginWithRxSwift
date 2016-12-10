@@ -10,6 +10,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+
+/// service handle result
+///
+/// - ok: ok
+/// - empty: nothing
+/// - failed: failed
 enum Result {
     case ok(message: String)
     case empty

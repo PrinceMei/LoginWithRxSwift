@@ -12,10 +12,10 @@ import RxSwift
 
 class LoginViewModel {
     
+    // output:
     let usernameUsable: Driver<Result>
     let loginButtonEnabled: Driver<Bool>
     let loginResult: Driver<Result>
-    
     
     init(input: (username: Driver<String>, password: Driver<String>, loginTaps: Driver<Void>),
         service: ValidationService) {
