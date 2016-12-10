@@ -11,6 +11,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+
 class ValidationService: NSObject {
     static let instance = ValidationService()
     

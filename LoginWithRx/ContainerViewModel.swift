@@ -17,9 +17,9 @@ class ContainerViewModel {
     init(withSearchText searchText: Observable<String>, service: SearchService) {
         models = searchText
             .debug()
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .flatMap { text in
                 return service.getHeros(withName: text)
             }.asDriver(onErrorJustReturn: [])
-        
     }
 }
