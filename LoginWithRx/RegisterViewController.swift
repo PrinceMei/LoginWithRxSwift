@@ -27,12 +27,20 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let viewModel = RegisterViewModel(input:
-            (username: usernameTextField.rx.text.orEmpty.asObservable(),
-             password: passwordTextField.rx.text.orEmpty.asObservable(),
-             repeatPassword: repeatPasswordTextField.rx.text.orEmpty.asObservable(),
-             registerTaps: registerButton.rx.tap.asObservable()),
-             service: ValidationService.instance)
+        let viewModel = RegisterViewModel(service: ValidationService.instance)
+        
+        usernameTextField.rx.text.orEmpty
+            .bindTo(viewModel.username)
+            .addDisposableTo(disposeBag)
+        passwordTextField.rx.text.orEmpty
+            .bindTo(viewModel.password)
+            .addDisposableTo(disposeBag)
+        repeatPasswordTextField.rx.text.orEmpty
+            .bindTo(viewModel.repeatPassword)
+            .addDisposableTo(disposeBag)
+        registerButton.rx.tap
+            .bindTo(viewModel.registerTaps)
+            .addDisposableTo(disposeBag)
         
         viewModel.usernameUsable
             .bindTo(usernameLabel.rx.validationResult)
@@ -53,21 +61,21 @@ class RegisterViewController: UIViewController {
             .addDisposableTo(disposeBag)
         
         viewModel.registerButtonEnabled
-            .subscribe(onNext: { [weak self] valid in
-                self?.registerButton.isEnabled = valid
-                self?.registerButton.alpha = valid ? 1.0 : 0.5
+            .subscribe(onNext: { [unowned self] valid in
+                self.registerButton.isEnabled = valid
+                self.registerButton.alpha = valid ? 1.0 : 0.5
             })
             .addDisposableTo(disposeBag)
         
         viewModel.registerResult
-            .subscribe(onNext: { [weak self] result in
+            .subscribe(onNext: { [unowned self] result in
                 switch result {
                 case let .ok(message):
-                    self?.showAlert(message: message)
+                    self.showAlert(message: message)
                 case .empty:
-                    self?.showAlert(message: "")
+                    self.showAlert(message: "")
                 case let .failed(message):
-                    self?.showAlert(message: message)
+                    self.showAlert(message: message)
                 }
             })
             .addDisposableTo(disposeBag)

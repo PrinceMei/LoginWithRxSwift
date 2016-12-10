@@ -11,6 +11,13 @@ import RxCocoa
 import RxSwift
 
 class RegisterViewModel: NSObject {
+    //input:
+    let username = Variable<String>("")
+    let password = Variable<String>("")
+    let repeatPassword = Variable<String>("")
+    let registerTaps = PublishSubject<Void>()
+    
+    // output:
     let usernameUsable: Observable<Result>
     let passwordUsable: Observable<Result>
     let repeatPasswordUsable: Observable<Result>
@@ -18,9 +25,8 @@ class RegisterViewModel: NSObject {
     
     let registerResult: Observable<Result>
     
-    init(input: (username: Observable<String>, password: Observable<String>, repeatPassword: Observable<String>, registerTaps: Observable<Void>),
-         service: ValidationService) {
-        usernameUsable = input.username
+    init(service: ValidationService) {
+        usernameUsable = username.asObservable()
             .flatMapLatest{ username in
                 return service.validateUsername(username)
                     .observeOn(MainScheduler.instance)
@@ -28,13 +34,13 @@ class RegisterViewModel: NSObject {
             }
             .shareReplay(1)
 
-        passwordUsable = input.password
+        passwordUsable = password.asObservable()
             .map { password in
                 return service.validatePassword(password)
             }
             .shareReplay(1)
         
-        repeatPasswordUsable = Observable.combineLatest(input.password, input.repeatPassword) {
+        repeatPasswordUsable = Observable.combineLatest(password.asObservable(), repeatPassword.asObservable()) {
                 return service.validateRepeatedPassword($0, repeatedPasswordword: $1)
             }
             .shareReplay(1)
@@ -46,11 +52,11 @@ class RegisterViewModel: NSObject {
             .distinctUntilChanged()
             .shareReplay(1)
         
-        let usernameAndPassword = Observable.combineLatest(input.username, input.password) {
+        let usernameAndPassword = Observable.combineLatest(username.asObservable(), password.asObservable()) {
             ($0, $1)
         }
         
-        registerResult = input.registerTaps.withLatestFrom(usernameAndPassword)
+        registerResult = registerTaps.asObservable().withLatestFrom(usernameAndPassword)
             .flatMapLatest { (username, password) in
                 return service.register(username, password: password)
                     .observeOn(MainScheduler.instance)
