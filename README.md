@@ -10,7 +10,7 @@ check up the username:
 
 ![](https://github.com/CoderTian/LoginWithRxSwift/blob/master/images/cunzai.gif?raw=true)
 
-search the container
+search the contents
 
 ![](https://github.com/CoderTian/LoginWithRxSwift/blob/master/images/search.gif?raw=true)
 
